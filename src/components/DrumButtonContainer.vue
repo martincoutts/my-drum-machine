@@ -77,12 +77,32 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/index.scss";
 .drum-button-container {
+  background-color: $main-black;
+  position: initial;
+  padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, auto);
-  row-gap: 20px;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(4, auto);
+
   justify-items: center;
 
-  background-color: $main-black;
+  @include md {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 1rem;
+    align-self: center;
+  }
+
+  @include lg {
+    background-color: none;
+    padding: 0;
+    height: 305px;
+    width: 636px;
+    position: absolute;
+    z-index: 4;
+    top: 9%;
+    left: 21%;
+    justify-self: center;
+  }
 }
 </style>
