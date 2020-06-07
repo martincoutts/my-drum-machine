@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <DrumButtonContainer />
+    <LPDTemplate />
+    <!-- <DrumButtonContainer /> -->
   </div>
 </template>
 
 <script>
-import DrumButtonContainer from "./components/DrumButtonContainer";
+// import DrumButtonContainer from "./components/DrumButtonContainer";
+import LPDTemplate from "./components/LPDTemplate";
 export default {
   name: "App",
-  components: { DrumButtonContainer },
+  // components: { DrumButtonContainer },
+  components: { LPDTemplate },
 };
 </script>
 
@@ -19,5 +22,8 @@ body {
 }
 #app {
   font-size: $font-size-base;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 </style>

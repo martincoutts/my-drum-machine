@@ -77,10 +77,17 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/index.scss";
 .drum-button-container {
+  height: 305px;
+  width: 636px;
+  position: absolute;
+  z-index: 4;
+  top: 9%;
+  left: 21%;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
-  row-gap: 20px;
+  // row-gap: 20px;
   justify-items: center;
 
   background-color: $main-black;
