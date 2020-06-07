@@ -9,6 +9,7 @@
 <script>
 const keyDown = (eventKeyCode, sample) => {
   const audio = new Audio(sample.sample);
+  audio.pause();
   audio.play();
 };
 
