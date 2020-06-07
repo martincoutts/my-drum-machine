@@ -7,26 +7,47 @@
 </template>
 
 <script>
-const keyDown = (eventKeyCode, sample) => {
-  const audio = new Audio(sample.sample);
-  audio.pause();
-  audio.play();
-};
+// const keyDown = (eventKeyCode, sample) => {
+//   if (sample.keyCode === event.keyCode) {
+//     const audio = new Audio(sample.sample);
+//     audio.pause();
+//     audio.play();
+//   }
+// };
+// const keyUp = (event) => {
+//   console.log("keyup");
+// };
 
 export default {
   name: "DrumButton",
-  props: ["sample", "keyDown"],
-
+  props: ["sample"],
+  data() {
+    return {
+      isKeyPressed: false,
+    };
+  },
   created() {
-    this.addEventListener(this.sample);
+    this.addEventListener("keydown", this.keyDown, this.sample);
+    this.addEventListener("keyup", this.keyUp, this.sample);
   },
   methods: {
-    addEventListener(sample) {
-      window.addEventListener("keydown", function(event) {
-        if (sample.keyCode === event.keyCode) {
-          keyDown(event.keyCode, sample);
-        }
+    addEventListener(eventType, callback, sample) {
+      window.addEventListener(eventType, function(event) {
+        callback(event.keyCode, sample);
       });
+    },
+    keyDown(eventKeyCode, sample) {
+      if (sample.keyCode === event.keyCode) {
+        this.isKeyPressed = true;
+        console.log("this.isKeyPressed", this.isKeyPressed);
+        const audio = new Audio(sample.sample);
+        audio.pause();
+        audio.play();
+      }
+    },
+    keyUp(event) {
+      this.isKeyPressed = false;
+      console.log("this.isKeyPressed", this.isKeyPressed);
     },
 
     logClick(e) {
