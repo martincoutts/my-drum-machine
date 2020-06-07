@@ -1,11 +1,14 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <DrumButtonContainer />
+  </div>
 </template>
 
 <script>
+import DrumButtonContainer from "./components/DrumButtonContainer";
 export default {
   name: "App",
-  components: {},
+  components: { DrumButtonContainer },
 };
 </script>
 
