@@ -70,7 +70,15 @@ export default {
       sampleArray,
     };
   },
+  methods: {},
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.drum-button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  row-gap: 20px;
+}
+</style>

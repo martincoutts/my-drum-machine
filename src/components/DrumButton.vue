@@ -1,31 +1,36 @@
 <template>
-  <div class="drum-button" @click="logClick"></div>
+  <div class="drum-button" @click="logClick">
+    <div class="drum-button__key">
+      <span>{{ sample.key }}</span>
+    </div>
+  </div>
 </template>
 
 <script>
+const keyDown = (eventKeyCode, sample) => {
+  const audio = new Audio(sample.sample);
+  audio.play();
+};
+
 export default {
   name: "DrumButton",
-  props: ["sample"],
+  props: ["sample", "keyDown"],
 
   created() {
-    this.addEventListener();
+    this.addEventListener(this.sample);
   },
   methods: {
-    addEventListener() {
-      window.addEventListener("keyup", function(event) {
-        console.log("event");
+    addEventListener(sample) {
+      window.addEventListener("keydown", function(event) {
+        if (sample.keyCode === event.keyCode) {
+          keyDown(event.keyCode, sample);
+        }
       });
     },
 
     logClick(e) {
       var audio = new Audio(this.sample.sample);
       audio.play();
-    },
-    keyDown(e) {
-      if (event.keyCode === 65) {
-        var audio = new Audio(this.sample.sample);
-        audio.play();
-      }
     },
   },
 };
