@@ -38,9 +38,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/index.scss";
 .drum-button {
   height: 200px;
   width: 200px;
-  border: solid 1px black;
+  border: solid 10px $button-border-grey;
 }
 </style>
