@@ -62,10 +62,19 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/index.scss";
 .drum-button {
-  height: 130px;
-  width: 130px;
   background-color: $button-black;
   border: solid 10px $button-border-grey;
+  height: 140px;
+  width: 140px;
+
+  @include md {
+    height: 160px;
+    width: 160px;
+  }
+  @include lg {
+    height: 130px;
+    width: 130px;
+  }
 
   &--selected {
     border: solid 10px $button-border-selected-red;

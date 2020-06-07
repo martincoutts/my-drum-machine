@@ -1,6 +1,9 @@
 <template>
   <div class="lpd-template">
-    <img src="../assets/images/LPDComponentNoTemplate.svg" />
+    <img
+      src="../assets/images/LPDComponentNoTemplate.svg"
+      class="lpd-template__image"
+    />
     <DrumButtonContainer />
   </div>
 </template>
@@ -15,8 +18,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/index.scss";
+
 .lpd-template {
-  position: absolute;
-  top: 25%;
+  display: none;
+  @include lg {
+    display: block;
+  }
+
+  @include lg {
+    position: absolute;
+    top: 25%;
+  }
 }
 </style>
