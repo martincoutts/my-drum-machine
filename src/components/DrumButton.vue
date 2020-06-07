@@ -1,5 +1,10 @@
 <template>
-  <div class="drum-button" @click="logClick">
+  <div
+    class="drum-button"
+    :class="{ 'drum-button--selected': this.isKeyPressed }"
+    @mousedown="mouseDown"
+    @mouseup="mouseUp"
+  >
     <div class="drum-button__key">
       <span>{{ sample.key }}</span>
     </div>
@@ -7,40 +12,70 @@
 </template>
 
 <script>
-const keyDown = (eventKeyCode, sample) => {
-  const audio = new Audio(sample.sample);
-  audio.pause();
-  audio.play();
-};
-
 export default {
   name: "DrumButton",
-  props: ["sample", "keyDown"],
-
+  props: ["sample"],
+  data() {
+    return {
+      isKeyPressed: false,
+    };
+  },
   created() {
-    this.addEventListener(this.sample);
+    this.addEventListener("keydown", this.keyDown, this.sample);
+    this.addEventListener("keyup", this.keyUp, this.sample);
   },
   methods: {
-    addEventListener(sample) {
-      window.addEventListener("keydown", function(event) {
-        if (sample.keyCode === event.keyCode) {
-          keyDown(event.keyCode, sample);
-        }
+    addEventListener(eventType, callback, sample) {
+      window.addEventListener(eventType, function(event) {
+        // *Stops event firing infinite times if key is held down, issue on IE
+        const repeat = event.repeat;
+
+        repeat === false ? callback(event.keyCode, sample) : null;
       });
     },
+    keyDown(eventKeyCode, sample) {
+      if (sample.keyCode === event.keyCode) {
+        this.isKeyPressed = true;
+        const audio = new Audio(sample.sample);
+        audio.pause();
+        audio.play();
+      }
+    },
+    keyUp(event) {
+      this.isKeyPressed = false;
+    },
 
-    logClick(e) {
-      var audio = new Audio(this.sample.sample);
+    mouseDown(e) {
+      this.isKeyPressed = true;
+
+      const audio = new Audio(this.sample.sample);
+      audio.pause();
       audio.play();
+    },
+    mouseUp(e) {
+      this.isKeyPressed = false;
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/index.scss";
 .drum-button {
   height: 200px;
   width: 200px;
-  border: solid 1px black;
+  background-color: $button-black;
+  border: solid 10px $button-border-grey;
+
+  &--selected {
+    border: solid 10px $button-border-selected-red;
+  }
+
+  &__key {
+    color: $drum-button-font-color;
+    font-family: $font-primary;
+    font-size: $drum-button-font-size;
+    padding: 0.5rem;
+  }
 }
 </style>
