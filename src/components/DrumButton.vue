@@ -46,7 +46,6 @@ export default {
     },
 
     mouseDown(e) {
-      console.log("click", e);
       this.isKeyPressed = true;
 
       const audio = new Audio(this.sample.sample);
@@ -70,6 +69,13 @@ export default {
 
   &--selected {
     border: solid 10px $button-border-selected-red;
+  }
+
+  &__key {
+    color: $drum-button-font-color;
+    font-family: $font-primary;
+    font-size: $drum-button-font-size;
+    padding: 0.5rem;
   }
 }
 </style>

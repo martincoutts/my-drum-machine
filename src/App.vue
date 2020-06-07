@@ -8,8 +8,16 @@
 import DrumButtonContainer from "./components/DrumButtonContainer";
 export default {
   name: "App",
-  components: { DrumButtonContainer }
+  components: { DrumButtonContainer },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "./scss/index.scss";
+body {
+  background-color: $app-background-color;
+}
+#app {
+  font-size: $font-size-base;
+}
+</style>
