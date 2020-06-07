@@ -87,9 +87,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
-  // row-gap: 20px;
+  row-gap: 1rem;
   justify-items: center;
-
-  background-color: $main-black;
 }
 </style>
