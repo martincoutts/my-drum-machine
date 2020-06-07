@@ -1,18 +1,33 @@
 <template>
-  <div class="drum-button" @click="logClick">DrumButton</div>
+  <div class="drum-button" @click="logClick"></div>
 </template>
 
 <script>
-import testSample from "../assets/test-sample.wav";
 export default {
   name: "DrumButton",
+  props: ["sample"],
+
+  created() {
+    this.addEventListener();
+  },
   methods: {
+    addEventListener() {
+      window.addEventListener("keyup", function(event) {
+        console.log("event");
+      });
+    },
+
     logClick(e) {
-      console.log("log click", e);
-      var audio = new Audio(testSample);
+      var audio = new Audio(this.sample.sample);
       audio.play();
-    }
-  }
+    },
+    keyDown(e) {
+      if (event.keyCode === 65) {
+        var audio = new Audio(this.sample.sample);
+        audio.play();
+      }
+    },
+  },
 };
 </script>
 

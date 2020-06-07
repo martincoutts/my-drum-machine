@@ -8,7 +8,7 @@
 import DrumButtonContainer from "./components/DrumButtonContainer";
 export default {
   name: "App",
-  components: { DrumButtonContainer },
+  components: { DrumButtonContainer }
 };
 </script>
 
