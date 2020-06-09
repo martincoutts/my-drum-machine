@@ -40,7 +40,7 @@ export default {
   }
 
   .ant-switch-checked {
-    background-color: red;
+    background-color: $pad-border-color;
   }
 }
 </style>
