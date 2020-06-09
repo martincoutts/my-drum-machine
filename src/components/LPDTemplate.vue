@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// import LPDImage from '../assets/images/'
 import DrumButtonContainer from "./DrumButtonContainer";
 import Toggle from "./Toggle";
 import UserColourSelector from "./UserColourSelector";
@@ -50,10 +49,9 @@ export default {
 
   @include lg {
     display: grid;
-    // grid-template-columns: 1fr;
-    // grid-template-rows: 15% 1fr 15%;
+
     position: absolute;
-    top: 25%;
+    align-self: center;
   }
 
   &__image {

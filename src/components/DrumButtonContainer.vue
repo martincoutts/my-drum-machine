@@ -101,7 +101,7 @@ export default {
     width: 636px;
     position: absolute;
     z-index: 4;
-    top: 9%;
+    top: 22%;
     left: 21%;
     justify-self: center;
   }

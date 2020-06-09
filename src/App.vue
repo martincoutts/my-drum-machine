@@ -41,7 +41,6 @@ export default {
   @include lg {
     display: flex;
     justify-content: center;
-    align-content: center;
   }
 }
 </style>
