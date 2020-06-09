@@ -1,7 +1,7 @@
 <template>
   <div class="drum-button-container">
     <fragment v-for="(sample, index) in sampleArray" :key="index">
-      <DrumButton :sample="sample" />
+      <DrumButton :sample="sample" :isToggled="isToggled" />
     </fragment>
   </div>
 </template>
@@ -65,6 +65,7 @@ const sampleArray = [
 export default {
   name: "DrumButtonContainer",
   components: { DrumButton },
+  props: ["isToggled"],
   data() {
     return {
       sampleArray,

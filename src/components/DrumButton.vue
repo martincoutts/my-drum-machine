@@ -5,7 +5,7 @@
     @mousedown="mouseDown"
     @mouseup="mouseUp"
   >
-    <div class="drum-button__key">
+    <div v-if="!this.isToggled" class="drum-button__key">
       <span>{{ sample.key }}</span>
     </div>
   </div>
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "DrumButton",
-  props: ["sample"],
+  props: ["sample", "isToggled"],
   data() {
     return {
       isKeyPressed: false,
@@ -77,7 +77,7 @@ export default {
   }
 
   &--selected {
-    border: solid 10px $button-border-selected-red;
+    border: solid 10px $pad-border-color;
   }
 
   &__key {
