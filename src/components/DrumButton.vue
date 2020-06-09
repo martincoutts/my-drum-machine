@@ -77,7 +77,7 @@ export default {
   }
 
   &--selected {
-    border: solid 10px $button-border-selected-red;
+    border: solid 10px $pad-border-color;
   }
 
   &__key {

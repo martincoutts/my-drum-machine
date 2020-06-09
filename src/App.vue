@@ -23,6 +23,7 @@ export default {
 
 #app {
   font-size: $font-size-base;
+  font-family: $font-primary;
   display: grid;
   height: 90vh;
   width: 100%;

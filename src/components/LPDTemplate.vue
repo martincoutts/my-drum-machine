@@ -5,7 +5,12 @@
       class="lpd-template__image"
     />
     <DrumButtonContainer :isToggled="this.toggle.isToggled" />
-    <Toggle :header="this.toggle.header" :toggleFunction="this.handleToggle" />
+    <div class="lpd-template__toggle-container">
+      <Toggle
+        :header="this.toggle.header"
+        :toggleFunction="this.handleToggle"
+      />
+    </div>
   </div>
 </template>
 
@@ -19,7 +24,7 @@ export default {
   data() {
     return {
       toggle: {
-        header: "Show Letters",
+        header: "Show Keys",
         isToggled: false,
       },
     };
@@ -38,13 +43,23 @@ export default {
 
 .lpd-template {
   display: none;
-  @include lg {
-    display: block;
-  }
 
   @include lg {
+    display: grid;
     position: absolute;
     top: 25%;
+  }
+
+  &__toggle-container {
+    display: none;
+    @include lg {
+      display: block;
+      background-color: $main-black;
+      margin: 1rem 0;
+      padding: 0.25rem;
+      border-radius: 6px;
+      justify-self: flex-end;
+    }
   }
 }
 </style>
