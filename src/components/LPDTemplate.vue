@@ -1,5 +1,8 @@
 <template>
   <div class="lpd-template">
+    <div class="colour-selector__container">
+      <UserColourSelector />
+    </div>
     <img
       src="../assets/images/LPDComponentNoTemplate.svg"
       class="lpd-template__image"
@@ -18,9 +21,10 @@
 // import LPDImage from '../assets/images/'
 import DrumButtonContainer from "./DrumButtonContainer";
 import Toggle from "./Toggle";
+import UserColourSelector from "./UserColourSelector";
 export default {
   name: "LPDTemplate",
-  components: { DrumButtonContainer, Toggle },
+  components: { DrumButtonContainer, Toggle, UserColourSelector },
   data() {
     return {
       toggle: {
@@ -46,8 +50,14 @@ export default {
 
   @include lg {
     display: grid;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 15% 1fr 15%;
     position: absolute;
     top: 25%;
+  }
+
+  &__image {
+    grid-row: 2 / span 1;
   }
 
   &__toggle-container {
